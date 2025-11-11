@@ -95,12 +95,12 @@ func ConnectTunnel(ctx context.Context, tlsConfig *tls.Config, quicConfig *quic.
 	var err error
 	if endpoint.IP.To4() == nil {
 		udpConn, err = net.ListenUDP("udp", &net.UDPAddr{
-			IP:   net.IPv6zero,
+			IP:   nil,
 			Port: 0,
 		})
 	} else {
 		udpConn, err = net.ListenUDP("udp", &net.UDPAddr{
-			IP:   net.IPv4zero,
+			IP:   nil,
 			Port: 0,
 		})
 	}
